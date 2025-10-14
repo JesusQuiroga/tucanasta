@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparador Azul</title>
+  <link rel="stylesheet" href="stylescomparador.css">
+</head>
+<!--Cuerpo de nuestra pagina del comparador-->
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="img/logotucan.png" alt="Logo" class="logo">
+    </div>
+    <form class="search-bar">
+      <input type="text" placeholder="Escriba para buscar">
+      <button type="submit">🔍</button>
+    </form>
+    <a href="#" class="btn-cuenta">Mi Cuenta</a>
+  </header>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <ul>
+      <li><a href="comparador.html">Inicio</a></li>
+      <li><a href="Cerealesylegumbres.html">Cereales y legumbres</a></li>
+      <li><a href="Lacteos.html">Lacteos</a></li>
+      <li><a href="Carnes.html">Carnes</a></li>
+      <li><a href="Frutasyverduras.html">Frutas y Verduras</a></li>
+      <li><a href="Panaderia.html">Panaderia</a></li>
+      <li><a href="Pastas.html">Pastas</a></li>
+      <li><a href="Cerealesylegumbres.html">Aceites</a></li>
+      <li><a href="Bebidas.html">Bebidas</a></li>
+      
+    </ul>
+  </nav>
+
+  <!-- SECCIÓN PRODUCTOS -->
+  <main class="productos">
+    <h2>Supermercado</h2>
+
+    <div class="grid-productos">
+<!--Seccion de lacteos++++++++++++++++++++++++++++++++++****************************************************************************************************************************-->
+      <div class="card">
+            <img src="https://i5.walmartimages.cl/asr/da685695-e2ce-4793-a876-a60498ab188b.8175d7d1f0f8f53393e3d1f9d494eaec.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Lacteos">
+            <h3>Leche Entera Natural 1L</h3>
+            <p>Soprole</p>
+            <button class="btn-comparar">Comparar</button>
+        
+              </div>
+        <div class="card">
+            <img src="https://i5.walmartimages.cl/asr/ddebe299-bd7e-4d75-8b7c-1633848f3b99.a348847cabf0f3e4439b8c2304ca2c79.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Lacteos">
+            <h3>Leche Semidescramado Natural 1L</h3>
+            <p>Soprole</p>
+            <button class="btn-comparar">Comparar</button>
+        
+              </div>
+        <div class="card">
+            <img src="https://i5.walmartimages.cl/asr/62f5bc0e-c995-416b-9c51-671daece97de.9056b5e4cb124d926c8d70d0aed213f9.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Lacteos">
+            <h3>Leche Extra Proteina 1L</h3>
+            <p>LONCO LECHE</p>
+            <button class="btn-comparar">Comparar</button>
+        
+              </div>
+        <div class="card">
+            <img src="https://i5.walmartimages.cl/asr/fe1f2b98-4a4d-4b66-8d1a-254379263fe7.339d76f2e92a97ec30887a003dba3a41.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Harina">
+            <h3>Leche Entera 1L</h3>
+            <p>Colun</p>
+            <button class="btn-comparar">Comparar</button>
+        
+              </div>
+        <div class="card">
+            <img src="https://i5.walmartimages.cl/asr/07760d40-4023-4bb1-a437-16f4880addd5.f46ab06ad342d09e43b36b4e38b3f87a.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Harina">
+            <h3>Leche Semidescremada 1L</h3>
+            <p>Colun</p>
+            <button class="btn-comparar">Comparar</button>
+
+  </main>
+
+  <!-- script del buscador para buscar productos por nombre -->
+<script>
+document.querySelector('.search-bar').addEventListener('submit', function(e) {
+  e.preventDefault(); // Evita recargar la página
+  const searchText = e.target.querySelector('input').value.toLowerCase().trim();
+  const productos = document.querySelectorAll('.card');
+
+  productos.forEach(card => {
+    const titulo = card.querySelector('h3').textContent.toLowerCase();
+    if (titulo.includes(searchText)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
+</script>
+</body>
+</html>

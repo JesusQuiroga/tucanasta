@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f7fb;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #024fba;
+  padding: 10px 20px;
+  color: white;
+}
+
+.logo {
+  width: 70px;
+}
+
+.search-bar {
+  flex: 1;
+  display: flex;
+  max-width: 500px;
+  margin: 0 20px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 6px 0 0 6px;
+}
+
+.search-bar button {
+  padding: 8px 12px;
+  background: #0360d6;
+  border: none;
+  color: white;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+}
+
+.btn-cuenta {
+  background: #fff;
+  color: #024fba;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* NAV */
+.nav {
+  background: #0360d6;
+  padding: 8px;
+}
+
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+/* PRODUCTOS */
+.productos {
+  padding: 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.productos h2 {
+  text-align: left;
+  margin-bottom: 20px;
+  color: #024fba;
+}
+
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.card img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  margin: 8px 0;
+  color: #033e8c;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.btn-comparar {
+  margin-top: 10px;
+  background: #024fba;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-comparar:hover {
+  background: #0360d6;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparador Azul</title>
+  <link rel="stylesheet" href="stylescomparador.css">
+</head>
+<!--Cuerpo de nuestra pagina del comparador-->
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="img/logotucan.png" alt="Logo" class="logo">
+    </div>
+    <form class="search-bar">
+      <input type="text" placeholder="Escriba para buscar">
+      <button type="submit">🔍</button>
+    </form>
+    <a href="#" class="btn-cuenta">Mi Cuenta</a>
+  </header>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <ul>
+      <li><a href="comparador.html">Inicio</a></li>
+      <li><a href="Cerealesylegumbres.html">Cereales y legumbres</a></li>
+      <li><a href="Lacteos.html">Lacteos</a></li>
+      <li><a href="Carnes.html">Carnes</a></li>
+      <li><a href="Frutasyverduras.html">Frutas y Verduras</a></li>
+      <li><a href="Panaderia.html">Panaderia</a></li>
+      <li><a href="Pastas.html">Pastas</a></li>
+      <li><a href="Cerealesylegumbres.html">Aceites</a></li>
+      <li><a href="Bebidas.html">Bebidas</a></li>
+      
+    </ul>
+  </nav>
+
+  <!-- SECCIÓN PRODUCTOS -->
+  <main class="productos">
+    <h2>Supermercado</h2>
+
+    <div class="grid-productos">
+<!--Carnes++++++++++++++++++++++++++++++++++****************************************************************************************************************************-->
+      <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-Npp45Xdem3Yxz3QhbgH05Fi9hIH5uCHedQ&s" alt="Carnes">
+            <h3>Lomo Vetado</h3>
+            <p>Carne de vacuno</p>
+            <button class="btn-comparar">Comparar</button>
+        
+              </div>
+        <div class="card">
+            <img src="https://i5.walmartimages.cl/asr/ff589939-44f0-4164-986d-cdef2b180b82.ff57de56f9a34eb3bcddefde882b6eef.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Carnes">
+            <h3>Asiento</h3>
+            <p>Carne de vacuno</p>
+            <button class="btn-comparar">Comparar</button>
+        
+        
+    </div>
+  </main>
+
+  <!-- script del buscador para buscar productos por nombre -->
+<script>
+document.querySelector('.search-bar').addEventListener('submit', function(e) {
+  e.preventDefault(); // Evita recargar la página
+  const searchText = e.target.querySelector('input').value.toLowerCase().trim();
+  const productos = document.querySelectorAll('.card');
+
+  productos.forEach(card => {
+    const titulo = card.querySelector('h3').textContent.toLowerCase();
+    if (titulo.includes(searchText)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
+</script>
+</body>
+</html>
