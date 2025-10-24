@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Comparador Azul</title>
-  <link rel="stylesheet" href="stylescomparador.css">
-</head>
-<!--Cuerpo de nuestra pagina del comparador-->
-<body>
 
+  <!-- Chart.js para historial de precios -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+
+
+  <link rel="stylesheet" href="stylescomparador.css"/>
+
+  <!-- Chart.js para historial de precios -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+</head>
+
+<body>
   <!-- HEADER -->
   <header class="header">
     <div class="logo-container">
       <img src="img/logotucan.png" alt="Logo" class="logo">
     </div>
-    <form class="search-bar">
-      <input type="text" placeholder="Escriba para buscar">
-      <button type="submit">🔍</button>
+    <form class="search-bar" id="searchForm" autocomplete="off">
+      <input type="text" placeholder="Escriba para buscar" id="searchInput">
+      <button type="submit" aria-label="Buscar">🔍</button>
     </form>
     <a href="#" class="btn-cuenta">Mi Cuenta</a>
   </header>
@@ -24,16 +31,15 @@
   <!-- NAV -->
   <nav class="nav">
     <ul>
-      <li><a href="comparador.html">Inicio</a></li>
+      <li><a href="comparador.html" aria-current="page">Inicio</a></li>
       <li><a href="Cerealesylegumbres.html">Cereales y legumbres</a></li>
-      <li><a href="Lacteos.html">Lacteos</a></li>
+      <li><a href="Lacteos.html">Lácteos</a></li>
       <li><a href="Carnes.html">Carnes</a></li>
       <li><a href="Frutasyverduras.html">Frutas y Verduras</a></li>
-      <li><a href="Panaderia.html">Panaderia</a></li>
+      <li><a href="Panaderia.html">Panadería</a></li>
       <li><a href="Pastas.html">Pastas</a></li>
-      <li><a href="Cerealesylegumbres.html">Aceites</a></li>
+      <li><a href="Aceites.html">Aceites</a></li>
       <li><a href="Bebidas.html">Bebidas</a></li>
-      
     </ul>
   </nav>
 
@@ -41,183 +47,627 @@
   <main class="productos">
     <h2>Supermercado</h2>
 
-    <div class="grid-productos">
-<!--Seccion de Cereales, granos y legumbres++++++++++++++++++++++++++++++++++****************************************************************************************************************************-->
-      <div class="card">
-            <img src="https://santaisabel.vtexassets.com/arquivos/ids/184937/Arroz-grado-2-gran-seleccion-grano-largo-y-ancho-1-kg.jpg?v=637704239561470000" alt="Arroz">
-            <h3>Arroz 1kg</h3>
-            <p>Tucapel</p>
-            <button class="btn-comparar">Comparar</button>
+    <div class="grid-productos" id="gridProductos">
+      <!-- Cards (puedes agregar más, el comparador se adapta solo) -->
+      <div class="card" data-title="Arroz 1kg" data-brand="Tucapel">
+        <img src="https://santaisabel.vtexassets.com/arquivos/ids/184937/Arroz-grado-2-gran-seleccion-grano-largo-y-ancho-1-kg.jpg?v=637704239561470000" alt="Arroz Tucapel 1kg">
+        <h3>Arroz 1kg</h3>
+        <p>Tucapel</p>
+        <button class="btn-comparar">Comparar</button>
       </div>
-        <div class="card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkuhdbCNL5fEx03VfuiYyxGF7ftxRdPi8Cwg&s" alt="Arroz">
-            <h3>Arroz 1kg</h3>
-            <p>Miraflores</p>
-            <button class="btn-comparar">Comparar</button>
-      </div>
-        <div class="card">
-            <img src="https://www.mercadoiansa.cl/media/catalog/product/cache/a2ad163fdbca081cfb8cbb5384a0c88f/7/0/706c50f3b648354de0bb0672386fb3.jpg" alt="Arroz">
-            <h3>Arroz 1kg</h3>
-            <p>Iansa AGRO</p>
-            <button class="btn-comparar">Comparar</button>
-              </div>
-        <div class="card">
-            <img src="https://unimarc.vtexassets.com/arquivos/ids/231256/000000000000650923-UN-01.jpg?v=638059307465600000" alt="Arroz">
-            <h3>Arroz 1kg</h3>
-            <p>Nuestra cocina</p>
-            <button class="btn-comparar">Comparar</button>
-      </div>
-        <div class="card">
-            <img src="https://santaisabel.vtexassets.com/arquivos/ids/381972/Harina-sin-polvos-de-hornear-1-kg.jpg?v=638526867849200000" alt="Harina">
-            <h3>Harina 1Kg</h3>
-            <p>Selecta - Sin polvos de hornear</p>
-            <button class="btn-comparar">Comparar</button>
-     </div>
-        <div class="card">
-            <img src="https://i.bolder.run/r/czoyMzA1MyxnOjEwMDB4/5892f7ea/856743-HARINA-SIN-POLVOS-MONT-BLAC-1KG-1.jpg" alt="Harina">
-            <h3>Harina 1Kg</h3>
-            <p>Mont Blanc - Sin polvos de hornear</p>
-            <button class="btn-comparar">Comparar</button>
-        
-      </div>
-        <div class="card">
-            <img src="https://mercadocarozzi.cl/media/catalog/product/cache/7e6366646a99abfd85e17ed2a9ddf5d1/1/8/1887805929f94746089e20833bc092.jpg" alt="Harina">
-            <h3>Harina 1Kg</h3>
-            <p>Mont Blanc - Con polvos de hornear</p>
-            <button class="btn-comparar">Comparar</button>
-        
-      </div>
-        <div class="card">
-            <img src="https://i5.walmartimages.cl/asr/535e84e6-1567-41ce-b5c6-152d9c1d1e14.f98b3c4f1e135407ad81e4378bff1cdc.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Harina">
-            <h3>Harina 3Kg</h3>
-            <p>Mont Blanc - Sin polvos de hornear</p>
-            <button class="btn-comparar">Comparar</button>
 
-              </div>
-        <div class="card">
-            <img src="https://i5.walmartimages.cl/asr/7b745ada-6cdd-48ec-85a1-1e76041d6055.947387c92a1c4a5b8af7824b0349654a.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Avena">
-            <h3>Avena Integral</h3>
-            <p>Mi tierra 400g</p>
-            <button class="btn-comparar">Comparar</button>
-        
-              </div>
-        <div class="card">
-            <img src="https://i5.walmartimages.cl/asr/f338d8d6-a158-4888-adc9-ea8aaf10ba98.f05c2ce34ae91912d08a10b11affa49f.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Lentejas">
-            <h3>Lentejas 4mm, 1Kg</h3>
-            <p>Banquete</p>
-            <button class="btn-comparar">Comparar</button>
-        
-              </div>
-        <div class="card">
-            <img src="https://i5.walmartimages.cl/asr/21200c33-dff9-4ba0-aa39-4f6305d14bd0.af6b737c9c1d4038954a67662ad9cc6c.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Lentejas">
-            <h3>Lentejas 6mm, 1Kg</h3>
-            <p>Banquete</p>
-            <button class="btn-comparar">Comparar</button>
-        
-              </div>
-        <div class="card">
-            <img src="https://i5.walmartimages.cl/asr/e38ed91b-6b06-4526-b3c7-3ac03beb26a7.26928ca5829344ab668e0f655e46a830.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Lentejas">
-            <h3>Lentejas 6mm, 500g</h3>
-            <p>Martini</p>
-            <button class="btn-comparar">Comparar</button>
-        
-              </div>
-        <div class="card">
-            <img src="https://i5.walmartimages.cl/asr/8de97f47-78ba-4b93-94cd-2e7dec87889c.3e136896d6824a2a7f631748f215bca6.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Garbanzos">
-            <h3>Garbanzos Sin Piel 1Kg</h3>
-            <p>Banquete</p>
-            <button class="btn-comparar">Comparar</button>
-        
-              </div>
-        <div class="card">
-            <img src="https://i5.walmartimages.cl/asr/9c9c59c0-64c0-4a8f-8149-1ef455a86bee.e5cee8167f969cb3d473187423453ae5.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Garbanzos">
-            <h3>Garbanzos Sin Piel, 500g</h3>
-            <p>Martini</p>
-            <button class="btn-comparar">Comparar</button>
-        
-              </div>
-        <div class="card">
-            <img src="https://i5.walmartimages.cl/asr/bbcbc0ca-7a96-4dc2-ace1-7ba066c91aef.91a90848606f979a8b407d572085650c.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Poroto">
-            <h3>Porotos Blancos, 1Kg</h3>
-            <p>Banquete</p>
-            <button class="btn-comparar">Comparar</button>
-        
-              </div>
-        <div class="card">
-            <img src="https://i5.walmartimages.cl/asr/a4ecae6b-9336-42d6-b2ca-2928f605067f.a4ac35e11c29b4b2e893bfb926ec5d78.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Poroto">
-            <h3>Porotos Blancos, 500g</h3>
-            <p>Martini</p>
-            <button class="btn-comparar">Comparar</button>
-  <!-- Seccion de lacteos+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************-->
-              </div>
-        <div class="card">
-            <img src="https://i5.walmartimages.cl/asr/da685695-e2ce-4793-a876-a60498ab188b.8175d7d1f0f8f53393e3d1f9d494eaec.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Lacteos">
-            <h3>Leche Entera Natural 1L</h3>
-            <p>Soprole</p>
-            <button class="btn-comparar">Comparar</button>
-        
-              </div>
-        <div class="card">
-            <img src="https://i5.walmartimages.cl/asr/ddebe299-bd7e-4d75-8b7c-1633848f3b99.a348847cabf0f3e4439b8c2304ca2c79.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Lacteos">
-            <h3>Leche Semidescramado Natural 1L</h3>
-            <p>Soprole</p>
-            <button class="btn-comparar">Comparar</button>
-        
-              </div>
-        <div class="card">
-            <img src="https://i5.walmartimages.cl/asr/62f5bc0e-c995-416b-9c51-671daece97de.9056b5e4cb124d926c8d70d0aed213f9.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Lacteos">
-            <h3>Leche Extra Proteina 1L</h3>
-            <p>LONCO LECHE</p>
-            <button class="btn-comparar">Comparar</button>
-        
-              </div>
-        <div class="card">
-            <img src="https://i5.walmartimages.cl/asr/fe1f2b98-4a4d-4b66-8d1a-254379263fe7.339d76f2e92a97ec30887a003dba3a41.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Harina">
-            <h3>Leche Entera 1L</h3>
-            <p>Colun</p>
-            <button class="btn-comparar">Comparar</button>
-        
-              </div>
-        <div class="card">
-            <img src="https://i5.walmartimages.cl/asr/07760d40-4023-4bb1-a437-16f4880addd5.f46ab06ad342d09e43b36b4e38b3f87a.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Harina">
-            <h3>Leche Semidescremada 1L</h3>
-            <p>Colun</p>
-            <button class="btn-comparar">Comparar</button>
-<!-- Seccion de carnes *******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************-->
-              </div>
-        <div class="card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-Npp45Xdem3Yxz3QhbgH05Fi9hIH5uCHedQ&s" alt="Carnes">
-            <h3>Lomo Vetado</h3>
-            <p>Carne de vacuno</p>
-            <button class="btn-comparar">Comparar</button>
-        
-              </div>
-        <div class="card">
-            <img src="https://i5.walmartimages.cl/asr/ff589939-44f0-4164-986d-cdef2b180b82.ff57de56f9a34eb3bcddefde882b6eef.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Carnes">
-            <h3>Asiento</h3>
-            <p>Carne de vacuno</p>
-            <button class="btn-comparar">Comparar</button>
-        
-        
+      <div class="card" data-title="Arroz 1kg" data-brand="Miraflores">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkuhdbCNL5fEx03VfuiYyxGF7ftxRdPi8Cwg&s" alt="Arroz Miraflores 1kg">
+        <h3>Arroz 1kg</h3>
+        <p>Miraflores</p>
+        <button class="btn-comparar">Comparar</button>
+      </div>
+
+      <div class="card" data-title="Harina 1Kg" data-brand="Mont Blanc - Sin polvos de hornear">
+        <img src="https://i.bolder.run/r/czoyMzA1MyxnOjEwMDB4/5892f7ea/856743-HARINA-SIN-POLVOS-MONT-BLAC-1KG-1.jpg" alt="Harina Mont Blanc 1kg sin polvos">
+        <h3>Harina 1Kg</h3>
+        <p>Mont Blanc - Sin polvos de hornear</p>
+        <button class="btn-comparar">Comparar</button>
+      </div>
+
+      <div class="card" data-title="Leche Entera 1L" data-brand="Colun">
+        <img src="https://i5.walmartimages.cl/asr/fe1f2b98-4a4d-4b66-8d1a-254379263fe7.339d76f2e92a97ec30887a003dba3a41.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Leche entera Colun 1L">
+        <h3>Leche Entera 1L</h3>
+        <p>Colun</p>
+        <button class="btn-comparar">Comparar</button>
+      </div>
+
+      <div class="card" data-title="Lentejas 4mm, 1Kg" data-brand="Banquete">
+        <img src="https://i5.walmartimages.cl/asr/f338d8d6-a158-4888-adc9-ea8aaf10ba98.f05c2ce34ae91912d08a10b11affa49f.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Lentejas 6mm Banquete 1kg">
+        <h3>Lentejas 4mm, 1Kg</h3>
+        <p>Banquete</p>
+        <button class="btn-comparar">Comparar</button>
+      </div>
+
+      <div class="card" data-title="Lentejas 6mm, 1Kg" data-brand="Banquete">
+        <img src="https://i5.walmartimages.cl/asr/21200c33-dff9-4ba0-aa39-4f6305d14bd0.af6b737c9c1d4038954a67662ad9cc6c.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Lentejas 6mm Banquete 1kg">
+        <h3>Lentejas 6mm, 1Kg</h3>
+        <p>Banquete</p>
+        <button class="btn-comparar">Comparar</button>
+      </div>
+      
+      <div class="card" data-title="Lentejas 6mm, 500g" data-brand="Banquete">
+        <img src="https://i5.walmartimages.cl/asr/e38ed91b-6b06-4526-b3c7-3ac03beb26a7.26928ca5829344ab668e0f655e46a830.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Lentejas 6mm Banquete 1kg">
+        <h3>Lentejas 6mm,  500g</h3>
+        <p>Martini</p>
+        <button class="btn-comparar">Comparar</button>
+      </div>
+      <div class="card" data-title="Garbanzos Sin Piel 1Kg" data-brand="Banquete">
+        <img src="https://i5.walmartimages.cl/asr/8de97f47-78ba-4b93-94cd-2e7dec87889c.3e136896d6824a2a7f631748f215bca6.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Lentejas 6mm Banquete 1kg">
+        <h3>Garbanzos Sin Piel 1Kg</h3>
+        <p>Banquete</p>
+        <button class="btn-comparar">Comparar</button>
+      </div>
+      <div class="card" data-title="Garbanzos Sin Piel 500g" data-brand="Banquete">
+        <img src="https://i5.walmartimages.cl/asr/9c9c59c0-64c0-4a8f-8149-1ef455a86bee.e5cee8167f969cb3d473187423453ae5.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Lentejas 6mm Banquete 1kg">
+        <h3>Garbanzos Sin Piel 500g</h3>
+        <p>Martini</p>
+        <button class="btn-comparar">Comparar</button>
+      </div>
+      <!-- Porotos blancos -->
+      <div class="card" data-title="Porotos blancos, 1Kg" data-brand="Banquete">
+        <img src="https://i5.walmartimages.cl/asr/bbcbc0ca-7a96-4dc2-ace1-7ba066c91aef.91a90848606f979a8b407d572085650c.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Porotos blancos 1Kg Banquete">
+        <h3>Porotos blancos, 1Kg</h3>
+        <p>Banquete</p>
+        <button class="btn-comparar">Comparar</button>
+      </div>
+
+      <div class="card" data-title="Porotos blancos, 500g" data-brand="Martini">
+        <img src="https://i5.walmartimages.cl/asr/a4ecae6b-9336-42d6-b2ca-2928f605067f.a4ac35e11c29b4b2e893bfb926ec5d78.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Porotos blancos 500g Martini">
+        <h3>Porotos blancos, 500g</h3>
+        <p>Martini</p>
+        <button class="btn-comparar">Comparar</button>
+      </div>
+
+      <!-- Lácteos Soprole -->
+      <div class="card" data-title="Leche entera natural 1L" data-brand="Soprole">
+        <img src="https://i5.walmartimages.cl/asr/da685695-e2ce-4793-a876-a60498ab188b.8175d7d1f0f8f53393e3d1f9d494eaec.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Leche entera natural 1L Soprole">
+        <h3>Leche entera natural 1L</h3>
+        <p>Soprole</p>
+        <button class="btn-comparar">Comparar</button>
+      </div>
+
+      <div class="card" data-title="Leche semidescremada natural 1L" data-brand="Soprole">
+        <img src="https://i5.walmartimages.cl/asr/ddebe299-bd7e-4d75-8b7c-1633848f3b99.a348847cabf0f3e4439b8c2304ca2c79.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Leche semidescremada natural 1L Soprole">
+        <h3>Leche semidescremada natural 1L</h3>
+        <p>Soprole</p>
+        <button class="btn-comparar">Comparar</button>
+      </div>
+
+      <!-- Lácteos Loncoleche / Colun -->
+      <div class="card" data-title="Leche extra proteína 1L" data-brand="Loncoleche">
+        <img src="https://i5.walmartimages.cl/asr/62f5bc0e-c995-416b-9c51-671daece97de.9056b5e4cb124d926c8d70d0aed213f9.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Leche extra proteína 1L Loncoleche">
+        <h3>Leche extra proteína 1L</h3>
+        <p>Loncoleche</p>
+        <button class="btn-comparar">Comparar</button>
+      </div>
+
+      <div class="card" data-title="Leche entera 1L" data-brand="Colun">
+        <img src="https://i5.walmartimages.cl/asr/fe1f2b98-4a4d-4b66-8d1a-254379263fe7.339d76f2e92a97ec30887a003dba3a41.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Leche entera 1L Colun">
+        <h3>Leche entera 1L</h3>
+        <p>Colun</p>
+        <button class="btn-comparar">Comparar</button>
+      </div>
+
+      <div class="card" data-title="Leche semidescremada 1L" data-brand="Colun">
+        <img src="https://i5.walmartimages.cl/asr/07760d40-4023-4bb1-a437-16f4880addd5.f46ab06ad342d09e43b36b4e38b3f87a.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Leche semidescremada 1L Colun">
+        <h3>Leche semidescremada 1L</h3>
+        <p>Colun</p>
+        <button class="btn-comparar">Comparar</button>
+      </div>
+
+      <!-- Carnes -->
+      <div class="card" data-title="Lomo vetado" data-brand="Vacuno">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-Npp45Xdem3Yxz3QhbgH05Fi9hIH5uCHedQ&s" alt="Lomo vetado vacuno">
+        <h3>Lomo vetado</h3>
+        <p>Vacuno</p>
+        <button class="btn-comparar">Comparar</button>
+      </div>
+
+      <div class="card" data-title="Asiento" data-brand="Vacuno">
+        <img src="https://i5.walmartimages.cl/asr/ff589939-44f0-4164-986d-cdef2b180b82.ff57de56f9a34eb3bcddefde882b6eef.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Asiento vacuno">
+        <h3>Asiento</h3>
+        <p>Vacuno</p>
+        <button class="btn-comparar">Comparar</button>
+      </div>
+
     </div>
   </main>
 
-  <!-- script del buscador para buscar productos por nombre -->
-<script>
-document.querySelector('.search-bar').addEventListener('submit', function(e) {
-  e.preventDefault(); // Evita recargar la página
-  const searchText = e.target.querySelector('input').value.toLowerCase().trim();
-  const productos = document.querySelectorAll('.card');
+  <!-- MODAL COMPARADOR -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Comparador</h3>
+        <button class="modal-close" id="modalClose" aria-label="Cerrar">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="compare-meta">
+          <span class="pill" id="pillProducto">Producto</span>
+          <span class="pill" id="pillMarca">Marca</span>
+          <span class="pill" id="pillMejorPrecio">Mejor precio: —</span>
+          <span class="pill" id="pillActualizado">Actualizado: —</span>
+        </div>
 
-  productos.forEach(card => {
-    const titulo = card.querySelector('h3').textContent.toLowerCase();
-    if (titulo.includes(searchText)) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
+        <div class="controls">
+          <label>Ordenar por:
+            <select id="sortSelect">
+              <option value="priceAsc">Precio (↑)</option>
+              <option value="priceDesc">Precio (↓)</option>
+              <option value="storeAsc">Tienda (A-Z)</option>
+            </select>
+          </label>
+          <label><input type="checkbox" id="onlyStock"> Solo con stock</label>
+          <label class="hint">Meta de precio:
+            <input type="number" id="priceTarget" placeholder="Ej. 1290" min="0" step="10">
+            <button class="btn" id="saveTarget" type="button">Guardar meta</button>
+          </label>
+          <span class="hint" id="targetHint"></span>
+        </div>
+
+        <div class="table-wrap">
+          <table id="tablaOfertas" aria-describedby="modalTitle">
+            <thead>
+              <tr>
+                <th class="minicol">#</th>
+                <th data-sort="store">Tienda</th>
+                <th data-sort="price">Precio</th>
+                <th>Envío</th>
+                <th>Estado</th>
+                <th class="minicol">Link</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyOfertas">
+              <tr><td colspan="6" class="empty">Sin datos de ofertas.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top:14px">
+          <h4 style="margin:0 0 8px">Historial de precios</h4>
+          <canvas id="chartHistorial" height="120" aria-label="Historial de precios"></canvas>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" id="btnCopiar" type="button">Copiar tabla</button>
+        <button class="btn primary" id="btnVerMas" type="button">Ver más precios (externo)</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  // =======================
+  // 1) DATASET DE EJEMPLO (semillas)
+  // =======================
+  // Puedes ampliar o reemplazar estas semillas. La app se adapta: si falta un producto, igual abre el modal.
+  const seedData = {
+    "Arroz 1kg|Tucapel": {
+      externalUrl: "https://www.tucanasta.cl/",
+      offers: [
+        { store: "Líder",   price: 1590, shipping: 1990, inStock: true,  url: "https://www.lider.cl/" , lastUpdate: "2025-10-15" },
+        { store: "Unimarc", price: 1690, shipping: 0,    inStock: true,  url: "https://www.unimarc.cl/", lastUpdate: "2025-10-16" },
+        { store: "Santa Isabel", price: 1790, shipping: 0, inStock: false, url: "https://www.santaisabel.cl/", lastUpdate: "2025-10-14" }
+      ],
+      history: [
+        { date: "2025-09-20", price: 1790 },
+        { date: "2025-09-27", price: 1690 },
+        { date: "2025-10-04", price: 1650 },
+        { date: "2025-10-11", price: 1590 }
+      ]
+    },
+    "Arroz 1kg|Miraflores": {
+      externalUrl: "https://www.tucanasta.cl/",
+      offers: [
+        { store: "Líder", price: 1490, shipping: 1990, inStock: true, url: "https://www.lider.cl/", lastUpdate: "2025-10-16" },
+        { store: "Jumbo", price: 1690, shipping: 0, inStock: true, url: "https://www.jumbo.cl/", lastUpdate: "2025-10-15" }
+      ],
+      history: [
+        { date: "2025-09-18", price: 1790 },
+        { date: "2025-09-28", price: 1690 },
+        { date: "2025-10-12", price: 1490 }
+      ]
+    },
+    "Harina 1Kg|Mont Blanc - Sin polvos de hornear": {
+      externalUrl: "https://www.tucanasta.cl/",
+      offers: [
+        { store: "Líder", price: 1290, shipping: 1990, inStock: true, url: "https://www.lider.cl/", lastUpdate: "2025-10-17" },
+        { store: "Santa Isabel", price: 1190, shipping: 0, inStock: false, url: "https://www.santaisabel.cl/", lastUpdate: "2025-10-10" }
+      ],
+      history: [
+        { date: "2025-09-15", price: 1390 },
+        { date: "2025-10-01", price: 1290 },
+        { date: "2025-10-14", price: 1190 }
+      ]
+    },
+    "Leche Entera 1L|Colun": {
+      externalUrl: "https://www.tucanasta.cl/",
+      offers: [
+        { store: "Unimarc", price: 1190, shipping: 0, inStock: true, url: "https://www.unimarc.cl/", lastUpdate: "2025-10-16" },
+        { store: "Jumbo", price: 1250, shipping: 0, inStock: true, url: "https://www.jumbo.cl/", lastUpdate: "2025-10-15" }
+      ],
+      history: [
+        { date: "2025-09-22", price: 1290 },
+        { date: "2025-10-05", price: 1190 }
+      ]
+    },
+    "Lentejas 6mm, 1Kg|Banquete": {
+      externalUrl: "https://www.tucanasta.cl/",
+      offers: [
+        { store: "Líder", price: 1990, shipping: 1990, inStock: true, url: "https://www.lider.cl/", lastUpdate: "2025-10-17" },
+        { store: "Unimarc", price: 2190, shipping: 0, inStock: true, url: "https://www.unimarc.cl/", lastUpdate: "2025-10-16" }
+      ],
+      history: [
+        { date: "2025-09-25", price: 2290 },
+        { date: "2025-10-10", price: 1990 }
+      ]
+    },
+    "Lentejas 6mm, 500g|Martini": {
+  externalUrl: "https://www.tucanasta.cl/",
+  offers: [
+    { store: "Líder", price: 1290, shipping: 1990, inStock: true, url: "https://www.lider.cl/", lastUpdate: "2025-10-17" },
+    { store: "Unimarc", price: 1390, shipping: 0, inStock: true, url: "https://www.unimarc.cl/", lastUpdate: "2025-10-16" },
+    { store: "Santa Isabel", price: 1490, shipping: 0, inStock: false, url: "https://www.santaisabel.cl/", lastUpdate: "2025-10-15" }
+  ],
+  history: [
+    { date: "2025-09-25", price: 1490 },
+    { date: "2025-10-10", price: 1390 },
+    { date: "2025-10-17", price: 1290 }
+  ]
+},
+
+"Garbanzos Sin Piel 1Kg|Banquete": {
+  externalUrl: "https://www.tucanasta.cl/",
+  offers: [
+    { store: "Líder", price: 2190, shipping: 1990, inStock: true, url: "https://www.lider.cl/", lastUpdate: "2025-10-17" },
+    { store: "Jumbo", price: 2290, shipping: 0, inStock: true, url: "https://www.jumbo.cl/", lastUpdate: "2025-10-16" },
+    { store: "Unimarc", price: 2490, shipping: 0, inStock: false, url: "https://www.unimarc.cl/", lastUpdate: "2025-10-14" }
+  ],
+  history: [
+    { date: "2025-09-28", price: 2390 },
+    { date: "2025-10-06", price: 2290 },
+    { date: "2025-10-17", price: 2190 }
+  ]
+},
+
+"Garbanzos Sin Piel 500g|Martini": {
+  externalUrl: "https://www.tucanasta.cl/",
+  offers: [
+    { store: "Líder", price: 1290, shipping: 1990, inStock: true, url: "https://www.lider.cl/", lastUpdate: "2025-10-17" },
+    { store: "Santa Isabel", price: 1390, shipping: 0, inStock: true, url: "https://www.santaisabel.cl/", lastUpdate: "2025-10-15" }
+  ],
+  history: [
+    { date: "2025-09-30", price: 1390 },
+    { date: "2025-10-10", price: 1290 }
+  ]
+},
+
+"Porotos blancos, 1Kg|Banquete": {
+  externalUrl: "https://www.tucanasta.cl/",
+  offers: [
+    { store: "Líder", price: 1990, shipping: 1990, inStock: true, url: "https://www.lider.cl/", lastUpdate: "2025-10-18" },
+    { store: "Unimarc", price: 1890, shipping: 0, inStock: true, url: "https://www.unimarc.cl/", lastUpdate: "2025-10-17" },
+    { store: "Jumbo", price: 2190, shipping: 0, inStock: false, url: "https://www.jumbo.cl/", lastUpdate: "2025-10-15" }
+  ],
+  history: [
+    { date: "2025-09-20", price: 2190 },
+    { date: "2025-10-05", price: 1990 },
+    { date: "2025-10-17", price: 1890 }
+  ]
+},
+
+"Porotos blancos, 500g|Martini": {
+  externalUrl: "https://www.tucanasta.cl/",
+  offers: [
+    { store: "Líder", price: 990, shipping: 1990, inStock: true, url: "https://www.lider.cl/", lastUpdate: "2025-10-17" },
+    { store: "Santa Isabel", price: 1090, shipping: 0, inStock: true, url: "https://www.santaisabel.cl/", lastUpdate: "2025-10-16" }
+  ],
+  history: [
+    { date: "2025-09-28", price: 1090 },
+    { date: "2025-10-11", price: 990 }
+  ]
+},
+
+"Leche entera natural 1L|Soprole": {
+  externalUrl: "https://www.tucanasta.cl/",
+  offers: [
+    { store: "Líder", price: 1390, shipping: 0, inStock: true, url: "https://www.lider.cl/", lastUpdate: "2025-10-17" },
+    { store: "Jumbo", price: 1450, shipping: 0, inStock: true, url: "https://www.jumbo.cl/", lastUpdate: "2025-10-16" }
+  ],
+  history: [
+    { date: "2025-09-25", price: 1490 },
+    { date: "2025-10-10", price: 1390 }
+  ]
+},
+
+"Leche semidescremada natural 1L|Soprole": {
+  externalUrl: "https://www.tucanasta.cl/",
+  offers: [
+    { store: "Unimarc", price: 1290, shipping: 0, inStock: true, url: "https://www.unimarc.cl/", lastUpdate: "2025-10-17" },
+    { store: "Líder", price: 1350, shipping: 0, inStock: true, url: "https://www.lider.cl/", lastUpdate: "2025-10-15" }
+  ],
+  history: [
+    { date: "2025-09-24", price: 1350 },
+    { date: "2025-10-10", price: 1290 }
+  ]
+},
+
+"Leche extra proteína 1L|Loncoleche": {
+  externalUrl: "https://www.tucanasta.cl/",
+  offers: [
+    { store: "Líder", price: 1550, shipping: 0, inStock: true, url: "https://www.lider.cl/", lastUpdate: "2025-10-16" },
+    { store: "Unimarc", price: 1590, shipping: 0, inStock: true, url: "https://www.unimarc.cl/", lastUpdate: "2025-10-15" }
+  ],
+  history: [
+    { date: "2025-09-22", price: 1650 },
+    { date: "2025-10-09", price: 1550 }
+  ]
+},
+
+"Leche entera 1L|Colun": {
+  externalUrl: "https://www.tucanasta.cl/",
+  offers: [
+    { store: "Líder", price: 1190, shipping: 0, inStock: true, url: "https://www.lider.cl/", lastUpdate: "2025-10-16" },
+    { store: "Unimarc", price: 1250, shipping: 0, inStock: true, url: "https://www.unimarc.cl/", lastUpdate: "2025-10-15" }
+  ],
+  history: [
+    { date: "2025-09-22", price: 1290 },
+    { date: "2025-10-05", price: 1190 }
+  ]
+},
+
+"Leche semidescremada 1L|Colun": {
+  externalUrl: "https://www.tucanasta.cl/",
+  offers: [
+    { store: "Jumbo", price: 1290, shipping: 0, inStock: true, url: "https://www.jumbo.cl/", lastUpdate: "2025-10-16" },
+    { store: "Líder", price: 1350, shipping: 0, inStock: false, url: "https://www.lider.cl/", lastUpdate: "2025-10-14" }
+  ],
+  history: [
+    { date: "2025-09-25", price: 1350 },
+    { date: "2025-10-10", price: 1290 }
+  ]
+},
+
+"Lomo vetado|Vacuno": {
+  externalUrl: "https://www.tucanasta.cl/",
+  offers: [
+    { store: "Líder", price: 10990, shipping: 0, inStock: true, url: "https://www.lider.cl/", lastUpdate: "2025-10-18" },
+    { store: "Unimarc", price: 11490, shipping: 0, inStock: true, url: "https://www.unimarc.cl/", lastUpdate: "2025-10-17" }
+  ],
+  history: [
+    { date: "2025-09-28", price: 11990 },
+    { date: "2025-10-12", price: 10990 }
+  ]
+},
+
+"Asiento|Vacuno": {
+  externalUrl: "https://www.tucanasta.cl/",
+  offers: [
+    { store: "Líder", price: 8990, shipping: 0, inStock: true, url: "https://www.lider.cl/", lastUpdate: "2025-10-18" },
+    { store: "Unimarc", price: 9390, shipping: 0, inStock: true, url: "https://www.unimarc.cl/", lastUpdate: "2025-10-16" }
+  ],
+  history: [
+    { date: "2025-09-26", price: 9390 },
+    { date: "2025-10-12", price: 8990 }
+  ]
+}
+
+  };
+
+  // =======================
+  // 2) NORMALIZACIÓN Y MAPEO PARA "TODOS LOS PRODUCTOS"
+  // =======================
+  // Construimos un Map con las seeds y además garantizamos entrada para cada card que exista en el DOM.
+  const dataMap = new Map(Object.entries(seedData));
+  function keyOf(title, brand){
+    return `${(title||"").trim()}|${(brand||"").trim()}`;
+  }
+  function ensureAllCardsHaveData(){
+    document.querySelectorAll('.card').forEach(card=>{
+      const title = card.dataset.title || card.querySelector('h3')?.textContent?.trim() || "";
+      const brand = card.dataset.brand || card.querySelector('p')?.textContent?.trim() || "";
+      const k = keyOf(title, brand);
+      if(!dataMap.has(k)){
+        dataMap.set(k, { externalUrl: "https://www.solotodo.cl/", offers: [], history: [] });
+      }
+    });
+  }
+  ensureAllCardsHaveData();
+
+  // =======================
+  // 3) BUSCADOR
+  // =======================
+  document.getElementById('searchForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const searchText = document.getElementById('searchInput').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      const title = (card.dataset.title || card.querySelector('h3')?.textContent || "").toLowerCase();
+      const brand = (card.dataset.brand || card.querySelector('p')?.textContent || "").toLowerCase();
+      card.style.display = (title.includes(searchText) || brand.includes(searchText)) ? "block" : "none";
+    });
   });
-});
-</script>
+
+  // =======================
+  // 4) MODAL & COMPARADOR (con delegación de eventos)
+  // =======================
+  const backdrop = document.getElementById('modalBackdrop');
+  const modalClose = document.getElementById('modalClose');
+  const tbody = document.getElementById('tbodyOfertas');
+  const pillProducto = document.getElementById('pillProducto');
+  const pillMarca = document.getElementById('pillMarca');
+  const pillMejorPrecio = document.getElementById('pillMejorPrecio');
+  const pillActualizado = document.getElementById('pillActualizado');
+  const btnVerMas = document.getElementById('btnVerMas');
+  const priceTargetInput = document.getElementById('priceTarget');
+  const saveTargetBtn = document.getElementById('saveTarget');
+  const targetHint = document.getElementById('targetHint');
+  const onlyStockChk = document.getElementById('onlyStock');
+  const sortSelect = document.getElementById('sortSelect');
+  const btnCopiar = document.getElementById('btnCopiar');
+
+  let currentKey = null;
+  let chart = null;
+
+  function openModal(){
+    backdrop.style.display = 'flex';
+    backdrop.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    backdrop.style.display = 'none';
+    backdrop.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    if(chart){ chart.destroy(); chart = null; }
+  }
+  modalClose.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', (e)=>{ if(e.target === backdrop) closeModal(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
+
+  // Delegación: funciona para todas las cards presentes o futuras
+  document.getElementById('gridProductos').addEventListener('click', (ev)=>{
+    const btn = ev.target.closest('.btn-comparar');
+    if(!btn) return;
+    const card = btn.closest('.card');
+    const title = card?.dataset.title || card.querySelector('h3')?.textContent?.trim() || "";
+    const brand = card?.dataset.brand || card.querySelector('p')?.textContent?.trim() || "";
+    currentKey = keyOf(title, brand);
+    renderComparison(title, brand);
+    openModal();
+  });
+
+  function renderComparison(title, brand){
+    const data = dataMap.get(currentKey) || { offers: [], history: [], externalUrl: "https://www.solotodo.cl/" };
+    pillProducto.textContent = `Producto: ${title}`;
+    pillMarca.textContent = `Marca: ${brand}`;
+    btnVerMas.onclick = () => { if(data?.externalUrl) window.open(data.externalUrl, '_blank'); };
+
+    const lsKey = `target:${currentKey}`;
+    const storedTarget = localStorage.getItem(lsKey);
+    priceTargetInput.value = storedTarget ? Number(storedTarget) : "";
+
+    const rows = buildRows(data);
+    tbody.innerHTML = rows.length ? rows.map((r,i)=>rowHTML(r, i+1)).join('') : `<tr><td colspan="6" class="empty">Sin datos de ofertas.</td></tr>`;
+
+    if(rows.length){
+      const best = [...rows].sort((a,b)=>a.price - b.price)[0];
+      pillMejorPrecio.textContent = `Mejor precio: $${fmt(best.price)}`;
+      const last = rows.reduce((acc, r)=> acc > r.lastUpdate ? acc : r.lastUpdate, rows[0].lastUpdate);
+      pillActualizado.textContent = `Actualizado: ${last}`;
+    }else{
+      pillMejorPrecio.textContent = `Mejor precio: —`;
+      pillActualizado.textContent = `Actualizado: —`;
+    }
+
+    updateTargetHint();
+    renderChart(data?.history || []);
+  }
+
+  function buildRows(data){
+    if(!data || !data.offers) return [];
+    let arr = data.offers.map(o => ({...o}));
+    if(onlyStockChk.checked) arr = arr.filter(o=>o.inStock);
+    switch(sortSelect.value){
+      case 'priceAsc': arr.sort((a,b)=>a.price - b.price); break;
+      case 'priceDesc': arr.sort((a,b)=>b.price - a.price); break;
+      case 'storeAsc': arr.sort((a,b)=>a.store.localeCompare(b.store)); break;
+    }
+    return arr;
+  }
+
+  function rowHTML(r, idx){
+    const stateBadge = r.inStock ? `<span class="badge ok">En stock</span>` : `<span class="badge warn">Sin stock</span>`;
+    const shipping = r.shipping ? `$${fmt(r.shipping)}` : "Gratis";
+    return `<tr>
+      <td>${idx}</td>
+      <td>${escapeHTML(r.store)}</td>
+      <td class="price">$${fmt(r.price)}</td>
+      <td>${shipping}</td>
+      <td>${stateBadge}</td>
+      <td class="actions"><a class="btn" href="${r.url}" target="_blank" rel="noopener">Ir</a></td>
+    </tr>`;
+  }
+
+  function renderChart(history){
+    const ctx = document.getElementById('chartHistorial');
+    if(chart){ chart.destroy(); chart = null; }
+    if(!history || !history.length){ return; }
+    const labels = history.map(h=>h.date);
+    const data = history.map(h=>h.price);
+    chart = new Chart(ctx, {
+      type: 'line',
+      data: { labels, datasets: [{ label: 'Precio', data, tension:.25 }] },
+      options: {
+        responsive:true,
+        plugins:{ legend:{ display:false }, tooltip:{ callbacks:{ label: (ctx)=>`$${fmt(ctx.parsed.y)}` } } },
+        scales:{ y:{ ticks:{ callback:(v)=>'$'+fmt(v) } } }
+      }
+    });
+  }
+
+  function updateTargetHint(){
+    if(!currentKey) return;
+    const lsKey = `target:${currentKey}`;
+    const target = Number(localStorage.getItem(lsKey) || priceTargetInput.value || 0);
+    const data = dataMap.get(currentKey);
+    if(!data || !data.offers || !target){ targetHint.textContent = ""; return; }
+    const best = [...data.offers].sort((a,b)=>a.price - b.price)[0];
+    if(!best){ targetHint.textContent = ""; return; }
+    const diff = best.price - target;
+    if(diff <= 0){ targetHint.textContent = `✅ Ya está en o bajo tu meta ($${fmt(target)}).`; }
+    else { targetHint.textContent = `Aún falta $${fmt(diff)} para tu meta ($${fmt(target)}).`; }
+  }
+
+  // Controles
+  onlyStockChk.addEventListener('change', ()=>{ if(currentKey){
+    const [title, brand] = currentKey.split('|');
+    renderComparison(title, brand);
+  }});
+  sortSelect.addEventListener('change', ()=>{ if(currentKey){
+    const [title, brand] = currentKey.split('|');
+    renderComparison(title, brand);
+  }});
+  saveTargetBtn.addEventListener('click', ()=>{
+    if(!currentKey) return;
+    const val = Number(priceTargetInput.value);
+    const key = `target:${currentKey}`;
+    if(!isFinite(val) || val<=0){
+      localStorage.removeItem(key);
+      targetHint.textContent = "Meta eliminada.";
+      return;
+    }
+    localStorage.setItem(key, String(val));
+    updateTargetHint();
+    targetHint.textContent = `Meta guardada: $${fmt(val)}.`;
+  });
+
+  btnCopiar.addEventListener('click', ()=>{
+    const rows = [...document.querySelectorAll('#tbodyOfertas tr')];
+    if(!rows.length) return;
+    const headers = [...document.querySelectorAll('#tablaOfertas thead th')].map(th=>th.innerText.trim());
+    const lines = [headers.join('\t')];
+    rows.forEach(tr=>{
+      const cols = [...tr.querySelectorAll('td')].map(td=>td.innerText.trim());
+      if(cols.length) lines.push(cols.join('\t'));
+    });
+    const blob = new Blob([lines.join('\n')], {type:'text/plain'});
+    const reader = new FileReader();
+    reader.onload = () => {
+      navigator.clipboard.writeText(reader.result).then(()=> {
+        btnCopiar.textContent = '¡Copiado!';
+        setTimeout(()=>btnCopiar.textContent='Copiar tabla', 1200);
+      });
+    };
+    reader.readAsText(blob);
+  });
+
+  // Utils
+  function fmt(n){ return Number(n).toLocaleString('es-CL'); }
+  function escapeHTML(str){ return (str||"").replace(/[&<>"']/g, m=>({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;" }[m])); }
+  </script>
 </body>
 </html>
